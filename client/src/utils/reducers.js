@@ -1,15 +1,5 @@
 import { useReducer } from 'react';
-import {
-  UPDATE_PRODUCTS,
-  ADD_TO_CART,
-  UPDATE_CART_QUANTITY,
-  REMOVE_FROM_CART,
-  ADD_MULTIPLE_TO_CART,
-  UPDATE_CATEGORIES,
-  UPDATE_CURRENT_CATEGORY,
-  CLEAR_CART,
-  TOGGLE_CART,
-} from './actions';
+import * as  actions from './actions';
 
 const initialState = {
   products: [],
@@ -24,27 +14,27 @@ export const reducer = (state, action) => {
   switch (action.type) {
     // TODO: Add a comment describing the functionality of the UPDATE_PRODUCTS case
     // Your comment here
-    case UPDATE_PRODUCTS:
+    case actions.UPDATE_PRODUCTS:
       return {
         ...state,
         products: [...action.products],
       };
 
-    case ADD_TO_CART:
+    case actions.ADD_TO_CART:
       return {
         ...state,
         cartOpen: true,
         cart: [...state.cart, action.product],
       };
 
-    case ADD_MULTIPLE_TO_CART:
+    case actions.ADD_MULTIPLE_TO_CART:
       return {
         ...state,
         cart: [...state.cart, ...action.products],
       };
     // TODO: Add a comment describing the functionality of the UPDATE_CART_QUANTITY case
     // Your comment here
-    case UPDATE_CART_QUANTITY:
+    case actions.UPDATE_CART_QUANTITY:
       return {
         ...state,
         cartOpen: true,
@@ -58,7 +48,7 @@ export const reducer = (state, action) => {
 
     // TODO: Add a comment describing the functionality of the REMOVE_FROM_CART case
     // Your comment here
-    case REMOVE_FROM_CART:
+    case actions.REMOVE_FROM_CART:
       let newState = state.cart.filter((product) => {
         return product._id !== action._id;
       });
@@ -69,26 +59,26 @@ export const reducer = (state, action) => {
         cart: newState,
       };
 
-    case CLEAR_CART:
+    case actions.CLEAR_CART:
       return {
         ...state,
         cartOpen: false,
         cart: [],
       };
 
-    case TOGGLE_CART:
+    case actions.TOGGLE_CART:
       return {
         ...state,
         cartOpen: !state.cartOpen,
       };
 
-    case UPDATE_CATEGORIES:
+    case actions.UPDATE_CATEGORIES:
       return {
         ...state,
         categories: [...action.categories],
       };
 
-    case UPDATE_CURRENT_CATEGORY:
+    case actions.UPDATE_CURRENT_CATEGORY:
       return {
         ...state,
         currentCategory: action.currentCategory,
