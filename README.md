@@ -29,6 +29,14 @@ In order to checkout a set of items you must first create a user account, once y
 
 ## Functionality
 
+### Add items to cart
+
+![adding items to cart](https://user-images.githubusercontent.com/82244776/140625536-ec6bb946-3c4a-4ad5-9d45-8a4b2065f7f1.gif)
+
+### Checkout with Stripe
+
+![Checkout](https://user-images.githubusercontent.com/82244776/140625564-932ff8c1-757c-45c6-94f7-27a9037be593.gif)
+
 ## Credits
 
 Jason Barrera-Ramirez<br>
