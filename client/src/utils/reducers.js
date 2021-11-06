@@ -9,11 +9,10 @@ const initialState = {
   currentCategory: '',
 }
 
-// TODO: To get a better understand of how a reducer works - add comments to the various actions in the reducer
+// switch statement that takes in the current action
 export const reducer = (state = initialState, action) => {
+  // each action affects the state somehow and returns the state to be accessed anywhere in the application
   switch (action.type) {
-    // TODO: Add a comment describing the functionality of the UPDATE_PRODUCTS case
-    // Your comment here
     case actions.UPDATE_PRODUCTS:
       return {
         ...state,
@@ -32,8 +31,6 @@ export const reducer = (state = initialState, action) => {
         ...state,
         cart: [...state.cart, ...action.products],
       };
-    // TODO: Add a comment describing the functionality of the UPDATE_CART_QUANTITY case
-    // Your comment here
     case actions.UPDATE_CART_QUANTITY:
       return {
         ...state,
@@ -45,9 +42,6 @@ export const reducer = (state = initialState, action) => {
           return product;
         }),
       };
-
-    // TODO: Add a comment describing the functionality of the REMOVE_FROM_CART case
-    // Your comment here
     case actions.REMOVE_FROM_CART:
       let newState = state.cart.filter((product) => {
         return product._id !== action._id;
@@ -84,8 +78,7 @@ export const reducer = (state = initialState, action) => {
         currentCategory: action.currentCategory,
       };
 
-    // TODO: Add a comment describing what the default case is for
-    // Your comment here
+    // return the state in the case that no action is taken
     default:
       return state;
   }
